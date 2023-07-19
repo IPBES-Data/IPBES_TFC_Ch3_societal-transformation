@@ -1,0 +1,120 @@
+---
+title: "Report Literature Search"
+author: Rainer M Krug [Rainer.Krug@Senckenberg.de](mailto:Rainer.Krug@Senckenberg.de)
+format:
+    html:
+        toc: true
+        embed-resources: true
+        code-fold: true
+        code-summary: "Show the code"
+    docx:
+        toc: true
+        number-sections: true
+        highlight-style: github
+    pdf:
+        toc: true
+        number-sections: true
+---
+
+```{r}
+#| label: setup
+#| include: false
+
+library(knitr)
+```
+
+# Metadata
+
+## Working Title
+TfC Ch 3
+
+## Contact Points
+
+[Björn-Ola Linnér](mailto:bjorn-ola.linner@liu.se)
+
+## CC
+
+[TfC tsu](mailto:ipbes-tsu-transformative-change@umontpellier.fr)
+
+???
+
+## Data Online
+[Google Drive folder](https://drive.google.com/drive/folders/1qywcq-15MBuHLq1zLa8EZiG8F9JsIr1G)
+
+
+
+# Introduction
+
+From the email [Aidin Niamir <aidin.niamir@senckenberg.de> - IPBES TfC Ch3 - societal transformation examples, analogies, archetypes](message://%3c65bc7296-2a77-4b29-1b8f-01c6241b74d5@senckenberg.de%3e) (link only for internal use - does not work):
+
+> We would like to make another attempt on search strings for chapter 3 > societal transformation examples, analogies, archetypes, hopefully > giving us a more limited set of publications.
+> 
+> The purpose of this the search related to examples and analogies is not > to provide an exhaustive list of papers using examples and analogies on > societal transformations toward the biodiversity goals, but to > systematically assist us in the search for illustrative examples. That > is why we think it will suffice with the narrow search terms. If > possible, please use Scopus as it tends to include more social science > entries [if that still is the case].
+> 
+> We suggest two different sets of literature searches: one to provide a > methodological sample of possible pedagogical analogies and examples > related to biodiversity and one with the purpose to systematically > search for examples of society-wide, deep, societal transformations > beyond biodiversity examples that can illustrate the scale required to > reach the biodiversity goals.
+> 
+> We suggest searches that only include title*, abstract, and key > words* (not the whole text of papers). The search include only and > peer-reviewed journals and books, as they may provide more in depths > examples (not book chapters as they typically are as short as journal > articles but usually not the same peer review process). We would like to > include English in the first instance and then add Spanish, French, and > possibly other languages. But we would first like to see what the search > terms give us narrowing the search to the English language.
+
+The search terms were run as provided in the email. These were:
+
+## First part search string: 
+
+> `*TS=(Transform* AND societ AND biodivers* AND > analog* OR example* OR ”case of” OR archetype*) *`
+
+## Second part search string
+For the second to fifth search string, we would like to see how many hits we get for each of the alternatives, to see how many articles appear for each search term.
+
+1. `*TS=(Transform* AND societ* AND biodivers* AND analog*)*`
+2. `*TS=(Transform* AND societ* AND biodivers* AND example)*`
+3. `*TS=(Transform* AND societ* AND biodivers* AND ”case of)*`
+4. `*TS=(Transform* AND societ* AND biodivers* AND archetype*)*`
+
+The searches were run manually using Scopus and the results saved in different formats.
+
+The results were saved in the following files:
+
+```{r}
+#| label: list_files
+#| 
+
+data.frame( 
+    "ris files" = list.files(
+        pattern = "\\.ris"
+    )
+ ) |> 
+    knitr::kable()
+```
+
+The results are also available in `.csv` format as well as `.bib` format. The `.ris` files can be directly imported into Zotero.
+
+
+# Hits per search
+
+The search terms resulted in the following number of hits:
+
+```{r}
+#| label: no_hits
+
+results <- data.frame(
+    search = list.files(
+        pattern = "\\.csv"
+    )
+)
+
+results$hits <- sapply(
+    results$search,
+    function(x) {
+        read.csv(x) |>
+            nrow()
+    }
+)
+
+results$search <- gsub(
+    pattern = "\\.csv",
+    replacement = "",
+    x = results$search
+)
+
+knitr::kable(results)
+```
+
