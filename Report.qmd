@@ -42,6 +42,9 @@ TfC Ch 3
 [Google Drive folder](https://drive.google.com/drive/folders/1qywcq-15MBuHLq1zLa8EZiG8F9JsIr1G)
 
 
+## Code repo
+
+[Github - private](https://github.com/rkrug/IPBES---TfC-Ch-3)
 
 # Introduction
 
@@ -85,7 +88,7 @@ data.frame(
     knitr::kable()
 ```
 
-The results are also available in `.csv` format as well as `.bib` format. The `.ris` files can be directly imported into Zotero.
+The results are also available in `.csv` format as well as `.bib` format. The `.ris` files can be directly imported into Zotero. Files can be downloaded from the [Google Drive folder](https://drive.google.com/drive/folders/1qywcq-15MBuHLq1zLa8EZiG8F9JsIr1G).
 
 
 # Hits per search
